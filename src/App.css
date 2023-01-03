@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+
+  --ig-gray: #DBDBDB;
+  --ig-gray-2: #f9f9f9;
+  --ig-gray-3: #a19a9a;
+  --blue: #47afff;
+  --blue-fb: #385185;
+  --blue-link: #00376b;
+}
+
+input:focus {
+  outline: none;
+}
+
+.developing {
+  font-size: 80px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40px;
+  text-align: center;
+  font-weight: bold;
+}
