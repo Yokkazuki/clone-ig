@@ -6,20 +6,19 @@ import p3 from "../images/pngs/loginR3.png"
 import p4 from "../images/pngs/loginR4.png"
 import "./login.css"
 import { useDispatch } from "react-redux"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { userActions } from "../store/user"
 
 const Login = () => {
+
     const [isError, setError] = useState(false);
     const [userInput, setUserInput] = useState({ username: "", password: "" });
     const isValidUserInput = (userInput.username.length > 0 && userInput.password.length > 0);
     const dispatch = useDispatch();
     const login = () => {
         if (!isValidUserInput) return
-        const username = (document.getElementById("username") as HTMLInputElement).value;
-        const password = (document.getElementById("password") as HTMLInputElement).value;
 
-        if (username !== "user" && password !== "user") {
+        if (userInput.username !== "user" || userInput.password !== "user") {
             return setError(true);
         }
         dispatch(userActions.login());
@@ -38,14 +37,14 @@ const Login = () => {
 
             <div className="login-form">
                 <div className="title"></div>
-                <input className="username" id="username" type="text" placeholder="Phone number, username, or email" value={userInput.username}
+                <input className="username" type="text" placeholder="Phone number, username, or email" value={userInput.username}
                     onChange={(e) => {
                         setUserInput(prev => {
                             return { ...prev, username: e.target.value }
                         });
                     }}
                 />
-                <input className="password" id="password" type="password" placeholder="Password" value={userInput.password}
+                <input className="password" type="password" placeholder="Password" value={userInput.password}
                     onChange={(e) => {
                         setUserInput(prev => {
                             return { ...prev, password: e.target.value }
