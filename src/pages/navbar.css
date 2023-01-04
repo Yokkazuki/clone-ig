@@ -1,0 +1,56 @@
+.navbar {
+    --navbar-padding-top-bottom: 40px;
+    background-color: white;
+    width: 244px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--navbar-padding-top-bottom) 5px;
+    position: fixed;
+    height: calc(100vh - var(--navbar-padding-top-bottom)*2);
+    left: 0;
+    border-right: 1px solid var(--ig-gray);
+}
+
+.navbar .link-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 15px;
+    height: 100%;
+}
+
+.navbar .link {
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 1px 0;
+}
+
+.navbar .more {
+    margin: 0 15px;
+}
+
+.navbar .link:hover {
+    background-color: var(--ig-gray-light);
+}
+
+.navbar .link:hover>svg {
+    scale: 1.1;
+}
+
+.navbar .logo {
+    margin: 0 10px 20px;
+    cursor: pointer;
+}
+
+.navbar .thumbnail {
+    --thumbnail-radius: 25px;
+    width: var(--thumbnail-radius);
+    height: var(--thumbnail-radius);
+    object-fit: cover;
+    border-radius: 45px;
+}

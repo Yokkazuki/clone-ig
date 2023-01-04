@@ -3,6 +3,14 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+    --login-form-width: 300px;
+}
+
+@media (width<=850px) {
+    .login-left {
+        display: none;
+    }
 }
 
 .login-form {
@@ -11,11 +19,11 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 350px;
+    width: var(--login-form-width);
 }
 
 .login-form .title {
-    background-image: url("../images/title.png");
+    background-image: url("../images/pngs/title.png");
     background-position: 0px -52px;
     /* background-size: auto; */
     width: 175px;
@@ -40,6 +48,9 @@
     padding: 9px 0;
     font-weight: bold;
     cursor: pointer;
+}
+.login-form .active-btn{
+    background-color: var(--blue-active) !important;
 }
 
 .login-form .other {
@@ -83,7 +94,13 @@
     vertical-align: baseline;
 }
 
-a {
+.error-message {
+    color: var(--red-error);
+    text-align: center;
+    margin: 10px 0;
+}
+
+.login a {
     margin: auto;
     font-size: 15px;
     color: var(--blue-link);
@@ -93,7 +110,7 @@ a {
 .signUp {
     margin-top: 10px;
     border: 1px solid var(--ig-gray);
-    width: 350px;
+    width: var(--login-form-width);
     text-align: center;
     padding: 20px 30px;
 }
@@ -106,7 +123,7 @@ a {
 
 .appStore {
     margin-top: 10px;
-    width: 350px;
+    width: var(--login-form-width);
     text-align: center;
     padding: 20px 30px;
 }
@@ -125,7 +142,7 @@ a {
 }
 
 .login-image-container {
-    background-image: url("../images/loginL.png");
+    background-image: url("../images/pngs/loginL.png");
     width: 468.32px;
     height: 634.15px;
     position: relative;
@@ -134,5 +151,37 @@ a {
 .image-display {
     position: absolute;
     right: 62px;
-    top: 27px
+    top: 27px;
+    opacity: 0;
+    animation: imageSwap 16s infinite;
+}
+
+.image-display:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.image-display:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.image-display:nth-child(3) {
+    animation-delay: 8s;
+}
+
+.image-display:nth-child(4) {
+    animation-delay: 12s;
+}
+
+@keyframes imageSwap {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        opacity: 1;
+    }
+
 }
