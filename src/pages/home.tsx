@@ -21,10 +21,10 @@ const Home = (props: HomeProps) => {
         dispatch(storiesActions.fetchStories());
     }, []);
     let stories = useSelector<RootState>((state) => state.stories.stories) as Array<Stories>;
-    const storiesContainer = document.getElementsByClassName("stories-container")[0];
     const [isDisplayArrow, setIsDisplayArrow] = useState({ leftArrow: false, rightArrow: true });
-
+    
     const getStoriesFieldMaxWidth = () => {
+        const storiesContainer = document.getElementsByClassName("stories-container")[0];
         return storiesContainer.scrollWidth - storiesContainer.clientWidth;
     }
 
@@ -42,7 +42,6 @@ const Home = (props: HomeProps) => {
     }
 
     const handleIsDisplayStoriesArrow = (current: number) => {
-        console.log(current, getStoriesFieldMaxWidth())
         if (current <= 0) {
             setIsDisplayArrow({ leftArrow: false, rightArrow: true })
         } else if (current >= getStoriesFieldMaxWidth()) {
