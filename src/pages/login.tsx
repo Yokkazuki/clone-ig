@@ -6,8 +6,9 @@ import p3 from "../images/pngs/loginR3.png"
 import p4 from "../images/pngs/loginR4.png"
 import "./login.css"
 import { useDispatch } from "react-redux"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { userActions } from "../store/user"
+import { storiesActions } from "../store/stories";
 
 const Login = () => {
 
@@ -22,6 +23,7 @@ const Login = () => {
             return setError(true);
         }
         dispatch(userActions.login());
+        dispatch(storiesActions.fetchStories());
     }
 
     return <div className="login">
