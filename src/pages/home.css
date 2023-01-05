@@ -1,3 +1,8 @@
+.home {
+    display: flex;
+    gap: 35px;
+}
+
 .home .main-field {
     width: 475px;
 }
@@ -48,23 +53,40 @@
     background: radial-gradient(circle at 0% 100%, #fdf497 0%, #fdf497 3%, #fd5949 60%, #d6249f 80%);
 }
 
-.home .post-field {
+.home .post-field .post {
     position: relative;
     border: 1px solid var(--ig-gray);
     border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.home .post-field svg:hover {
+    color: var(--light-hover);
+    fill: var(--light-hover)
 }
 
 .home .post-field .post-header {
-    padding: 10px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
 }
 
-.home .post-field .post-header .username {
+.home .post-field .post-header .user {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.home .post-field .post-header .user .username {
     margin-left: 10px;
 }
 
-.home .post-field .post-header img {
+.home .post-field .post-header .user .username:hover {
+    color: var(--light-hover);
+}
+
+.home .post-field .post-header .user img {
     --user-thumbnail: 40px;
     height: var(--user-thumbnail);
     width: var(--user-thumbnail);
@@ -88,7 +110,7 @@
 }
 
 .home .post-field .post-image-container img {
-    width: 475px;
+    width: 473px;
     height: 500px;
     background-color: black;
     object-fit: contain;
@@ -108,4 +130,105 @@
 
 .home .post-field .post-action svg:last-child {
     margin: 0 0 0 auto;
+}
+
+.home .post-field .post-description {
+    display: flex;
+}
+
+
+.home .user-field {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    margin-top: 85px;
+    gap: 15px;
+}
+
+@media (width<=1370px) {
+    .user-field {
+        display: none !important;
+    }
+}
+
+.home .user-field .current-user,
+.home .user-field .suggestion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home .user-field .current-user>img {
+    --story-thumbnail: 62px;
+    height: var(--story-thumbnail);
+    width: var(--story-thumbnail);
+    position: relative;
+    object-fit: cover;
+    border-radius: 45px;
+    border: 2px solid white;
+    z-index: 2;
+}
+
+.home .user-field .current-user::before {
+    --story-thumbnail: 66px;
+    scale: 1.08;
+    position: absolute;
+    display: block;
+    content: "";
+    border-radius: 45px;
+    height: var(--story-thumbnail);
+    width: var(--story-thumbnail);
+    background: radial-gradient(circle at 0% 100%, #fdf497 0%, #fdf497 3%, #fd5949 60%, #d6249f 80%);
+}
+
+.home .user-field .current-user .user,
+.home .user-field .suggestion .user {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.home .user-field .current-user .user .name,
+.user-suggestions,
+.home .user-field .suggestion .user .followed-by {
+    color: var(--ig-gray-3);
+}
+
+.home .user-field .current-user .switch-btn,
+.home .user-field .suggestion .follow-btn {
+    color: var(--blue-2);
+    cursor: pointer;
+}
+
+.home .user-field .suggestions-list .suggestion img {
+    --user-thumbnail: 40px;
+    height: var(--user-thumbnail);
+    width: var(--user-thumbnail);
+    position: relative;
+    object-fit: cover;
+    border-radius: 45px;
+    border: 2px solid white;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.home .user-field .suggestions-list .suggestion::before {
+    --story-thumbnail: 44px;
+    scale: 1.08;
+    position: absolute;
+    display: block;
+    content: "";
+    border-radius: 45px;
+    height: var(--story-thumbnail);
+    width: var(--story-thumbnail);
+    background: radial-gradient(circle at 0% 100%, #fdf497 0%, #fdf497 3%, #fd5949 60%, #d6249f 80%);
+}
+
+.home .user-field .suggestions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.home .user-field .username{
+    cursor: pointer;
 }
