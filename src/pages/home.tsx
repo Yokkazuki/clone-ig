@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
-import { Stories, storiesActions } from "../store/stories";
+import { Story, storiesActions } from "../store/stories";
 import BookmarkSvg from "../images/svgs/bookmark";
 import CommentSvg from "../images/svgs/comment";
 import HeartSvg from "../images/svgs/heart";
@@ -10,6 +10,8 @@ import ThreeDotSvg from "../images/svgs/threeDot";
 import "./home.css"
 import Login from "./login";
 import { useEffect, useState } from "react";
+import { Post, postsActions } from "../store/posts";
+import { UserSuggestion, userSuggestionsActions } from "../store/userSuggestion";
 
 type HomeProps = {
     isLogin: boolean
@@ -19,10 +21,14 @@ const Home = (props: HomeProps) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(storiesActions.fetchStories());
+        dispatch(postsActions.fetchPosts());
+        dispatch(userSuggestionsActions.fetchUserSuggestion());
     }, []);
-    let stories = useSelector<RootState>((state) => state.stories.stories) as Array<Stories>;
+    let stories = useSelector<RootState>((state) => state.stories.stories) as Array<Story>;
+    let posts = useSelector<RootState>((state) => state.posts.posts) as Array<Post>;
+    let userSuggestions = useSelector<RootState>((state) => state.userSuggestions.userSuggestions) as Array<UserSuggestion>;
     const [isDisplayArrow, setIsDisplayArrow] = useState({ leftArrow: false, rightArrow: true });
-    
+
     const getStoriesFieldMaxWidth = () => {
         const storiesContainer = document.getElementsByClassName("stories-container")[0];
         return storiesContainer.scrollWidth - storiesContainer.clientWidth;
@@ -74,114 +80,40 @@ const Home = (props: HomeProps) => {
                         {isDisplayArrow.rightArrow && <div className="stories-arrow-right" onClick={storiesScrollRight} />}                    </div>
 
                     <div className="post-field">
-                        <div className="post">
-                            <div className="post-header">
-                                <div className="user">
-                                    <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                                    <div className="username">user</div>
+                        {posts?.map((post, i) => {
+                            return <div className="post" key={post.createdBy}>
+                                <div className="post-header">
+                                    <div className="user">
+                                        <img src={post.createdByThumbnail} />
+                                        <div className="username">{post.createdBy}</div>
+                                    </div>
+                                    <ThreeDotSvg />
                                 </div>
-                                <ThreeDotSvg />
-                            </div>
-                            <div className="post-image-container">
-                                <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                            </div>
-                            <div className="post-bottom">
-                                <div className="post-action">
-                                    <HeartSvg />
-                                    <CommentSvg />
-                                    <ShareSvg />
-                                    <BookmarkSvg />
+                                <div className="post-image-field">
+                                    <div className="post-image-container">
+                                        <img src={post.image[0]} />
+                                    </div>
+                                    {<div className="image-arrow-left" />}
+                                    {<div className="image-arrow-right" />}
                                 </div>
-                                <div className="likes">1000 likes</div>
-                                <div className="post-description">
-                                    <div className="username">user</div> this is description
-                                </div>
-                                <div className="post-comment">
-                                    this is comment
-                                </div>
-                            </div>
-                        </div>
-                        <div className="post">
-                            <div className="post-header">
-                                <div className="user">
-                                    <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                                    <div className="username">user</div>
-                                </div>
-                                <ThreeDotSvg />
-                            </div>
-                            <div className="post-image-container">
-                                <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                            </div>
-                            <div className="post-bottom">
-                                <div className="post-action">
-                                    <HeartSvg />
-                                    <CommentSvg />
-                                    <ShareSvg />
-                                    <BookmarkSvg />
-                                </div>
-                                <div className="likes">1000 likes</div>
-                                <div className="post-description">
-                                    <div className="username">user</div> this is description
-                                </div>
-                                <div className="post-comment">
-                                    this is comment
+                                <div className="post-bottom">
+                                    <div className="post-action">
+                                        <HeartSvg />
+                                        <CommentSvg />
+                                        <ShareSvg />
+                                        <BookmarkSvg />
+                                    </div>
+                                    <div className="likes">{post.likeCount} likes</div>
+                                    <div className="post-description">
+                                        <div className="username">{post.createdBy} </div> <div className="description-content">{post.discription}</div>
+                                    </div>
+                                    <div className="post-comment">
+                                        <div className="view-all-comment-btn">View all {post.comment.length} comments</div>
+                                    </div>
+                                    <div className="post-time-before"> {post.createdTimeBefore} ago</div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="post">
-                            <div className="post-header">
-                                <div className="user">
-                                    <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                                    <div className="username">user</div>
-                                </div>
-                                <ThreeDotSvg />
-                            </div>
-                            <div className="post-image-container">
-                                <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                            </div>
-                            <div className="post-bottom">
-                                <div className="post-action">
-                                    <HeartSvg />
-                                    <CommentSvg />
-                                    <ShareSvg />
-                                    <BookmarkSvg />
-                                </div>
-                                <div className="likes">1000 likes</div>
-                                <div className="post-description">
-                                    <div className="username">user</div> this is description
-                                </div>
-                                <div className="post-comment">
-                                    this is comment
-                                </div>
-                            </div>
-                        </div>
-                        <div className="post">
-                            <div className="post-header">
-                                <div className="user">
-                                    <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                                    <div className="username">user</div>
-                                </div>
-                                <ThreeDotSvg />
-                            </div>
-                            <div className="post-image-container">
-                                <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                            </div>
-                            <div className="post-bottom">
-                                <div className="post-action">
-                                    <HeartSvg />
-                                    <CommentSvg />
-                                    <ShareSvg />
-                                    <BookmarkSvg />
-                                </div>
-                                <div className="likes">1000 likes</div>
-                                <div className="post-description">
-                                    <div className="username">user</div> this is description
-                                </div>
-                                <div className="post-comment">
-                                    this is comment
-                                </div>
-                            </div>
-                        </div>
+                        })}
                     </div>
                 </div>
                 <div className="user-field">
@@ -196,54 +128,19 @@ const Home = (props: HomeProps) => {
 
                     <div className="user-suggestions">Suggestions For You</div>
                     <div className="suggestions-list">
-                        <div className="suggestion">
-                            <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                            <div className="user">
-                                <div className="username">user</div>
-                                <div className="followed-by">Followed by someone</div>
-                            </div>
-                            <div className="follow-btn">follow</div>
-                        </div>
-                        <div className="suggestion">
-                            <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                            <div className="user">
-                                <div className="username">user</div>
-                                <div className="followed-by">Followed by someone</div>
-                            </div>
-                            <div className="follow-btn">follow</div>
-                        </div>
-                        <div className="suggestion">
-                            <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                            <div className="user">
-                                <div className="username">user</div>
-                                <div className="followed-by">Followed by someone</div>
-                            </div>
-                            <div className="follow-btn">follow</div>
-                        </div>
-                        <div className="suggestion">
-                            <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                            <div className="user">
-                                <div className="username">user</div>
-                                <div className="followed-by">Followed by someone</div>
-                            </div>
-                            <div className="follow-btn">follow</div>
-                        </div>
-                        <div className="suggestion">
-                            <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                            <div className="user">
-                                <div className="username">user</div>
-                                <div className="followed-by">Followed by someone</div>
-                            </div>
-                            <div className="follow-btn">follow</div>
-                        </div>
-                        <div className="suggestion">
-                            <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg" />
-                            <div className="user">
-                                <div className="username">user</div>
-                                <div className="followed-by">Followed by someone</div>
-                            </div>
-                            <div className="follow-btn">follow</div>
-                        </div>
+                        {
+                            userSuggestions?.map((userSuggestion, i) => {
+                                return <div className="suggestion" key={userSuggestion.username}>
+                                    <img src={userSuggestion.thumbnail} />
+                                    <div className="user">
+                                        <div className="username">{userSuggestion.username}</div>
+                                        <div className="followed-by">Followed by someone</div>
+                                    </div>
+                                    <div className="follow-btn">follow</div>
+                                </div>
+                            })
+                        }
+
                     </div>
                 </div>
             </div>}

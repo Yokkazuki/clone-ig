@@ -118,6 +118,7 @@
 }
 
 .home .post-field .post-header .user .username {
+    font-weight: bold;
     margin-left: 10px;
 }
 
@@ -148,6 +149,41 @@
     background: radial-gradient(circle at 0% 100%, #fdf497 0%, #fdf497 3%, #fd5949 60%, #d6249f 80%);
 }
 
+.home .post-field .post-image-field {
+    position: relative;
+}
+
+.home .post-field .image-arrow-left {
+    opacity: 0.5;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: -294px -226px;
+    height: 45px;
+    width: 45px;
+    background-image: url("../images/pngs/icon2.png");
+}
+
+.home .post-field .image-arrow-right {
+    opacity: 0.5;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: -294px -273px;
+    height: 45px;
+    width: 45px;
+    background-image: url("../images/pngs/icon2.png");
+}
+
+
 .home .post-field .post-image-container img {
     width: 473px;
     height: 500px;
@@ -173,6 +209,15 @@
 
 .home .post-field .post-description {
     display: flex;
+}
+
+.home .post-field .post-description .username {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.home .post-field .post-description .description-content {
+    margin-left: 10px;
 }
 
 
@@ -228,7 +273,9 @@
 
 .home .user-field .current-user .user .name,
 .user-suggestions,
-.home .user-field .suggestion .user .followed-by {
+.home .user-field .suggestion .user .followed-by,
+.home .post-field .view-all-comment-btn,
+.home .post-field .post-time-before {
     color: var(--ig-gray-3);
 }
 
@@ -268,6 +315,7 @@
     gap: 7px;
 }
 
-.home .user-field .username {
+.home .user-field .username,
+.home .post-field .view-all-comment-btn {
     cursor: pointer;
 }
