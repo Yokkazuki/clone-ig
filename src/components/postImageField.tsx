@@ -38,12 +38,12 @@ const PostImageField = ({ images, index }: PostImageFieldProps) => {
                 return <img src={img} key={img} style={{ transform: imagePositionX }} />
             })}
 
-            <div className="post-image-container-dot-group">
+            {images.length > 1 && <div className="post-image-container-dot-group">
                 {images.map((img, i) => {
                     const isActive = (Math.abs(imageIndex) / imageWidth === i)
                     return <div className={`post-image-container-dot${isActive ? " active" : ""}`} key={containerId + "_ImageIndex_" + i} />
                 })}
-            </div>
+            </div>}
         </div>
 
         {isDisplayArrow.leftArrow && <div className="image-arrow-left" onClick={scrollLeft} />}
