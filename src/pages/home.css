@@ -149,10 +149,6 @@
     background: radial-gradient(circle at 0% 100%, #fdf497 0%, #fdf497 3%, #fd5949 60%, #d6249f 80%);
 }
 
-.home .post-field .post-image-field {
-    position: relative;
-}
-
 .home .post-field .image-arrow-left {
     opacity: 0.5;
     cursor: pointer;
@@ -183,12 +179,31 @@
     background-image: url("../images/pngs/icon2.png");
 }
 
+.home .post-field .post-image-field {
+    position: relative;
+}
 
-.home .post-field .post-image-container img {
+.home .post-field .post-image-field .post-image-container {
+    position: relative;
+    display: flex;
     width: 473px;
     height: 500px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.home .post-field .post-image-field .post-image-container::-webkit-scrollbar {
+    display: none;
+}
+
+.home .post-field .post-image-field .post-image-container img {
+    width: inherit;
+    height: inherit;
     background-color: black;
     object-fit: contain;
+    position: absolute;
+    transition: 300ms;
 }
 
 .home .post-field .post-bottom {
@@ -230,8 +245,8 @@
 }
 
 @media (width<=1370px) {
-    .user-field {
-        display: none !important;
+    .home .user-field {
+        display: none;
     }
 }
 
@@ -244,6 +259,7 @@
 
 .home .user-field .current-user>img {
     --story-thumbnail: 62px;
+    cursor: pointer;
     height: var(--story-thumbnail);
     width: var(--story-thumbnail);
     position: relative;
@@ -318,4 +334,27 @@
 .home .user-field .username,
 .home .post-field .view-all-comment-btn {
     cursor: pointer;
+}
+
+.home .post-field .post-image-field .post-image-container-dot-group {
+    position: absolute;
+    bottom: 15px;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
+
+.home .post-field .post-image-field .post-image-container-dot-group .post-image-container-dot {
+    --dot-radius: 6px;
+
+    width: var(--dot-radius);
+    height: var(--dot-radius);
+    border-radius: 45px;
+    background-color: white;
+    opacity: 0.5;
+}
+
+.home .post-field .post-image-field .post-image-container-dot-group .active {
+    opacity: 1;
 }

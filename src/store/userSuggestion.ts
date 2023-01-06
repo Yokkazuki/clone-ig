@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface UserSuggestion {
+export interface IUserSuggestion {
     username: string;
     thumbnail: string;
 }
@@ -8,7 +8,7 @@ export interface UserSuggestion {
 const userSuggestionsSlice = createSlice({
     name: 'User-Suggestion',
     initialState: {
-        userSuggestions: new Array<UserSuggestion>()
+        userSuggestions: new Array<IUserSuggestion>()
     },
     reducers: {
         fetchUserSuggestion(state) {

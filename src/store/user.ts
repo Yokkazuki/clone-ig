@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface userInfo {
+export interface IUserInfo {
     isLogin: boolean,
     // profile
     icon: string,

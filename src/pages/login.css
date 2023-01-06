@@ -50,7 +50,7 @@
     cursor: pointer;
 }
 .login-form .active-btn{
-    background-color: var(--blue-active) !important;
+    background-color: var(--blue-active);
 }
 
 .login-form .other {
@@ -78,7 +78,7 @@
 }
 
 .facebook .icon {
-    background-image: url("../images/icon.png");
+    background-image: url("../images/pngs/icon.png");
     background-repeat: no-repeat;
     background-position: -414px -259px;
     height: 16px;

@@ -4,12 +4,12 @@ import { RootState } from "./store";
 import { useSelector } from "react-redux";
 import Home from "./pages/home"
 import Navbar from "./pages/navbar"
-import { userInfo } from "./store/user";
+import { IUserInfo } from "./store/user";
 
 function App() {
-  const userInfo = useSelector<RootState>((state) => state.user) as userInfo;
+  const userInfo = useSelector<RootState>((state) => state.user) as IUserInfo;
   const isLogin = userInfo.isLogin;
-  // const isLogin = useSelector<RootState>((state) => state.user.isLogin) as boolean;
+  
   return (
     <div className="app">
       {isLogin && <Navbar userIcon={userInfo.icon} />}

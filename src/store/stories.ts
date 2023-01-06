@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface Story {
+export interface IStory {
     createdBy: string;
     createdByThumbnail: string;
     createdTimeBefore: string;
@@ -11,7 +11,7 @@ export interface Story {
 const storiesSlice = createSlice({
     name: 'Stories',
     initialState: {
-        stories: new Array<Story>()
+        stories: new Array<IStory>()
     },
     reducers: {
         fetchStories(state) {
@@ -49,7 +49,7 @@ const storiesSlice = createSlice({
                         createdBy: "user5",
                         createdByThumbnail: "https://picsum.photos/id/269/200/300",
                         createdTimeBefore: "40m",
-                        image: ["https://picsum.photos/id/245/200/300", "https://picsum.photos/id/246/200/300", "https://picsum.photos/id/247/200/300", "https://picsum.photos/id/248/200/300"],
+                        image: ["https://picsum.photos/id/284/200/300", "https://picsum.photos/id/101/200/300", "https://picsum.photos/id/247/200/300", "https://picsum.photos/id/248/200/300"],
                         isRead: false,
                     },
                     {
@@ -84,7 +84,7 @@ const storiesSlice = createSlice({
                         createdBy: "user10",
                         createdByThumbnail: "https://picsum.photos/id/283/200/300",
                         createdTimeBefore: "2h",
-                        image: ["https://picsum.photos/id/260/200/300", "https://picsum.photos/id/261/200/300", "https://picsum.photos/id/262/200/300", "https://picsum.photos/id/263/200/300"],
+                        image: ["https://picsum.photos/id/260/200/300", "https://picsum.photos/id/261/200/300", "https://picsum.photos/id/100/200/300", "https://picsum.photos/id/263/200/300"],
                         isRead: false,
                     },
                 ]

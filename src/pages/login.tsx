@@ -27,6 +27,9 @@ const Login = () => {
     }
 
     return <div className="login">
+        <div className="developing">
+            Developing
+        </div>
         <div className="login-left">
             <div className="login-image-container">
                 <img src={p1} className="image-display" />
