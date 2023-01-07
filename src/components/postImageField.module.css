@@ -7,8 +7,7 @@
     display: flex;
     width: 473px;
     height: 500px;
-    overflow-y: hidden;
-    overflow-x: auto;
+    overflow: hidden;
     scroll-behavior: smooth;
 }
 
