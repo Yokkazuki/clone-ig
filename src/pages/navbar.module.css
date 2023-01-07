@@ -12,7 +12,7 @@
     border-right: 1px solid var(--ig-gray);
 }
 
-.navbar .link-field {
+.linkField {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -20,7 +20,7 @@
     height: 100%;
 }
 
-.navbar .link {
+.link {
     display: flex;
     gap: 20px;
     font-size: 20px;
@@ -30,24 +30,24 @@
     margin: 1px 0;
 }
 
-.navbar .more {
+.more {
     margin: 0 15px;
 }
 
-.navbar .link:hover {
+.link:hover {
     background-color: var(--ig-gray-light);
 }
 
-.navbar .link:hover>svg {
+.link:hover>svg {
     scale: 1.1;
 }
 
-.navbar .logo {
+.logo {
     margin: 0 10px 20px;
     cursor: pointer;
 }
 
-.navbar .thumbnail {
+.thumbnail {
     --thumbnail-radius: 25px;
     width: var(--thumbnail-radius);
     height: var(--thumbnail-radius);

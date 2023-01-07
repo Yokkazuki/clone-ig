@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { storiesActions, IStory } from "../store/stories";
 import StoryThumbnail from "./storyThumbnail";
+import style from "./storiesField.module.css";
 
 
 const StoriesField = () => {
@@ -13,19 +14,19 @@ const StoriesField = () => {
     let stories = useSelector<RootState>((state) => state.stories.stories) as Array<IStory>;
     const [isDisplayArrow, setIsDisplayArrow] = useState({ leftArrow: false, rightArrow: true });
     const getStoriesFieldMaxWidth = () => {
-        const storiesContainer = document.getElementsByClassName("stories-container")[0];
+        const storiesContainer = document.getElementsByClassName(style.container)[0];
         return storiesContainer.scrollWidth - storiesContainer.clientWidth;
     }
 
     const storiesScrollLeft = () => {
         const storiesContainer =
-            document.getElementsByClassName("stories-container")[0];
+            document.getElementsByClassName(style.container)[0];
         storiesContainer.scrollLeft -= 200;
         handleIsDisplayStoriesArrow(storiesContainer.scrollLeft -= 200);
     }
     const storiesScrollRight = () => {
         const storiesContainer =
-            document.getElementsByClassName("stories-container")[0];
+            document.getElementsByClassName(style.container)[0];
         storiesContainer.scrollLeft += 200;
         handleIsDisplayStoriesArrow(storiesContainer.scrollLeft += 200);
     }
@@ -40,14 +41,14 @@ const StoriesField = () => {
         }
     }
 
-    return <div className="stories-field">
-        <div className="stories-container">
+    return <div className={style.storiesField}>
+        <div className={style.container}>
             {stories?.map((story, i) => {
                 return <StoryThumbnail createdBy={story.createdBy} createdByThumbnail={story.createdByThumbnail} key={"StoryThumbnail_" + i} />
             })}
         </div>
-        {isDisplayArrow.leftArrow && <div className="stories-arrow-left" onClick={storiesScrollLeft} />}
-        {isDisplayArrow.rightArrow && <div className="stories-arrow-right" onClick={storiesScrollRight} />}
+        {isDisplayArrow.leftArrow && <div className={style.arrowLeft} onClick={storiesScrollLeft} />}
+        {isDisplayArrow.rightArrow && <div className={style.arrowRight} onClick={storiesScrollRight} />}
     </div>
 }
 

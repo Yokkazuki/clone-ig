@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import style from "./postImageField.module.css";
 
 type PostImageFieldProps = {
     images: Array<string>,
@@ -31,23 +32,24 @@ const PostImageField = ({ images, index }: PostImageFieldProps) => {
         }
     }, [imageIndex])
 
-    return <div className="post-image-field">
-        <div className="post-image-container" id={containerId}>
+    return <div className={style.imageField}>
+        <div className={style.container} id={containerId}>
             {images.map((img, i) => {
                 const imagePositionX = `translateX(${imageIndex + (i * imageWidth)}px)`
                 return <img src={img} key={img} style={{ transform: imagePositionX }} />
             })}
 
-            {images.length > 1 && <div className="post-image-container-dot-group">
+            {images.length > 1 && <div className={style.dotGroup}>
                 {images.map((img, i) => {
                     const isActive = (Math.abs(imageIndex) / imageWidth === i)
-                    return <div className={`post-image-container-dot${isActive ? " active" : ""}`} key={containerId + "_ImageIndex_" + i} />
+                    // return <div className={`post-image-container-dot${isActive ? " active" : ""}`} key={containerId + "_ImageIndex_" + i} />
+                    return <div className={style.dot + isActive ? " " + style.active : ""} key={containerId + "_ImageIndex_" + i} />
                 })}
             </div>}
         </div>
 
-        {isDisplayArrow.leftArrow && <div className="image-arrow-left" onClick={scrollLeft} />}
-        {isDisplayArrow.rightArrow && images.length > 1 && <div className="image-arrow-right" onClick={scrollRight} />}
+        {isDisplayArrow.leftArrow && <div className={style.arrowLeft} onClick={scrollLeft} />}
+        {isDisplayArrow.rightArrow && images.length > 1 && <div className={style.arrowRight} onClick={scrollRight} />}
     </div>
 }
 export default PostImageField

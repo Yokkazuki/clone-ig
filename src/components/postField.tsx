@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { IPost, postsActions } from "../store/posts";
-
+import style from "./postField.module.css";
 import Post from "./post";
 
 const PostField = () => {
@@ -11,7 +11,7 @@ const PostField = () => {
         dispatch(postsActions.fetchPosts());
     }, []);
     let posts = useSelector<RootState>((state) => state.posts.posts) as Array<IPost>;
-    return <div className="post-field">
+    return <div className={style.postField}>
         {posts?.map((post, i) => {
             return <Post
                 createdBy={post.createdBy}

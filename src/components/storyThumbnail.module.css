@@ -1,0 +1,31 @@
+.story {
+    width: 66px;
+    display: grid;
+    text-align: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.story img {
+    --story-thumbnail: 62px;
+
+    height: var(--story-thumbnail);
+    width: var(--story-thumbnail);
+    position: relative;
+    object-fit: cover;
+    border-radius: 45px;
+    border: 2px solid white;
+}
+
+.story::before {
+    --story-thumbnail: 66px;
+
+    scale: 1.08;
+    position: absolute;
+    display: block;
+    content: "";
+    border-radius: 45px;
+    height: var(--story-thumbnail);
+    width: var(--story-thumbnail);
+    background: radial-gradient(circle at 0% 100%, #fdf497 0%, #fdf497 3%, #fd5949 60%, #d6249f 80%);
+}

@@ -1,0 +1,46 @@
+.storiesField {
+    position: relative;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    border: 1px solid var(--ig-gray);
+    border-radius: 10px;
+    margin: 15px 0;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.arrowLeft,.arrowRight {
+    --arrow-size: 45px;
+
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    height: var(--arrow-size);
+    width: var(--arrow-size);
+    background-image: url("../images/pngs/icon2.png");
+}
+
+.arrowLeft {
+    left: 0;
+    background-position: -294px -226px;
+}
+
+.arrowRight {
+    right: 0;
+    background-position: -294px -273px;
+}
+

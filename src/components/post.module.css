@@ -1,0 +1,90 @@
+.post {
+    position: relative;
+    border: 1px solid var(--ig-gray);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+}
+
+.header::before {
+    --story-thumbnail: 44px;
+    scale: 1.08;
+    position: absolute;
+    display: block;
+    content: "";
+    border-radius: 45px;
+    height: var(--story-thumbnail);
+    width: var(--story-thumbnail);
+    background: radial-gradient(circle at 0% 100%, #fdf497 0%, #fdf497 3%, #fd5949 60%, #d6249f 80%);
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user img {
+    --user-thumbnail: 40px;
+
+    height: var(--user-thumbnail);
+    width: var(--user-thumbnail);
+    position: relative;
+    object-fit: cover;
+    border-radius: 45px;
+    border: 2px solid white;
+    z-index: 2;
+}
+
+.user .username {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.user .username:hover {
+    color: var(--light-hover);
+}
+
+.bottom {
+    padding: 10px 15px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.action {
+    gap: 10px;
+    display: flex;
+}
+
+.action svg:last-child {
+    margin: 0 0 0 auto;
+}
+
+.description {
+    display: flex;
+    cursor: pointer;
+}
+
+.description .username {
+    font-weight: bold;
+}
+
+.discriptionContent {
+    margin-left: 10px;
+}
+
+.comment,
+.postTimeBefore {
+    color: var(--ig-gray-3);
+}
+
+.viewAllCommentBtn {
+    cursor: pointer;
+}

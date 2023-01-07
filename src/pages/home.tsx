@@ -1,4 +1,4 @@
-import "./home.css"
+import homeStyle from "./home.module.css";
 import Login from "./login";
 import StoriesField from "../components/storiesField";
 import UserField from "../components/userField";
@@ -12,8 +12,8 @@ const Home = (props: HomeProps) => {
 
     return <div>
         {!props.isLogin ? <Login /> :
-            <div className="home">
-                <div className="main-field">
+            <div className={homeStyle.home}>
+                <div className={homeStyle.main}>
                     <StoriesField />
                     <PostField />
                 </div>

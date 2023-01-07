@@ -1,0 +1,4 @@
+.postField svg:hover {
+    color: var(--light-hover);
+    fill: var(--light-hover)
+}

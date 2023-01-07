@@ -1,4 +1,4 @@
-
+import style from "./userFieldCurrentUser.module.css";
 
 type UserFieldCurrentUserProps = {
     thumbnail: string;
@@ -7,13 +7,13 @@ type UserFieldCurrentUserProps = {
 }
 
 const UserFieldCurrentUser = ({ thumbnail, username, name }: UserFieldCurrentUserProps) => {
-    return <div className="current-user">
+    return <div className={style.currentUser}>
         <img src={thumbnail} />
-        <div className="user">
-            <div className="username">{username}</div>
-            <div className="name">{name}</div>
+        <div className={style.user}>
+            <div className={style.username}>{username}</div>
+            <div className={style.name}>{name}</div>
         </div>
-        <div className="switch-btn">Switch</div>
+        <div className={style.switchBtn}>Switch</div>
     </div>
 }
 

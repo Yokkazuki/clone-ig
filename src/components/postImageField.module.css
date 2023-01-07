@@ -1,0 +1,75 @@
+.imageField {
+    position: relative;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    width: 473px;
+    height: 500px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.container img {
+    width: inherit;
+    height: inherit;
+    background-color: black;
+    object-fit: contain;
+    position: absolute;
+    transition: 300ms;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.dotGroup {
+    position: absolute;
+    bottom: 15px;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
+
+.dot {
+    --dot-size: 6px;
+
+    width: var(--dot-size);
+    height: var(--dot-size);
+    border-radius: 45px;
+    background-color: white;
+    opacity: 0.5;
+}
+
+.active {
+    opacity: 1;
+}
+
+.arrowLeft,
+.arrowRight {
+    --arrow-size: 45px;
+    
+    opacity: 0.5;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    height: var(--arrow-size);
+    width: var(--arrow-size);
+    background-image: url("../images/pngs/icon2.png");
+}
+
+.arrowLeft {
+    left: 0;
+    background-position: -294px -226px;
+}
+
+.arrowRight {
+    right: 0;
+    background-position: -294px -273px;
+}

@@ -8,12 +8,12 @@
 }
 
 @media (width<=850px) {
-    .login-left {
+    .left {
         display: none;
     }
 }
 
-.login-form {
+.form {
     border: 1px solid var(--ig-gray);
     padding: 0 30px 25px;
     display: flex;
@@ -22,25 +22,23 @@
     width: var(--login-form-width);
 }
 
-.login-form .title {
+.title {
     background-image: url("../images/pngs/title.png");
     background-position: 0px -52px;
-    /* background-size: auto; */
     width: 175px;
     height: 51px;
     background-repeat: no-repeat;
-    /* display: inline-block; */
     margin: 40px auto 35px;
     cursor: pointer;
 }
 
-.login-form input {
+input {
     border: 1px solid var(--ig-gray);
     padding: 10px;
     background-color: var(--ig-gray-2);
 }
 
-.login-form .login-btn {
+.loginBtn {
     background-color: var(--blue);
     color: white;
     border: 0px;
@@ -49,11 +47,11 @@
     font-weight: bold;
     cursor: pointer;
 }
-.login-form .active-btn{
+.activeBtn{
     background-color: var(--blue-active);
 }
 
-.login-form .other {
+.other {
     display: flex;
     color: var(--ig-gray-3);
     align-items: center;
@@ -69,6 +67,7 @@
     background-color: var(--ig-gray);
 }
 
+
 .facebook {
     display: flex;
     justify-content: center;
@@ -77,7 +76,7 @@
     cursor: pointer;
 }
 
-.facebook .icon {
+.facebookIcon {
     background-image: url("../images/pngs/icon.png");
     background-repeat: no-repeat;
     background-position: -414px -259px;
@@ -94,7 +93,7 @@
     vertical-align: baseline;
 }
 
-.error-message {
+.errorMessage {
     color: var(--red-error);
     text-align: center;
     margin: 10px 0;
@@ -128,27 +127,27 @@
     padding: 20px 30px;
 }
 
-.appStore .store {
+.store {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 
-.appStore .store img {
+.store img {
     width: 150px;
     height: 50px;
     cursor: pointer;
 }
 
-.login-image-container {
+.imageContainer {
     background-image: url("../images/pngs/loginL.png");
     width: 468.32px;
     height: 634.15px;
     position: relative;
 }
 
-.image-display {
+.image {
     position: absolute;
     right: 62px;
     top: 27px;
@@ -156,19 +155,19 @@
     animation: imageSwap 16s infinite;
 }
 
-.image-display:nth-child(1) {
+.image:nth-child(1) {
     animation-delay: 0s;
 }
 
-.image-display:nth-child(2) {
+.image:nth-child(2) {
     animation-delay: 4s;
 }
 
-.image-display:nth-child(3) {
+.image:nth-child(3) {
     animation-delay: 8s;
 }
 
-.image-display:nth-child(4) {
+.image:nth-child(4) {
     animation-delay: 12s;
 }
 

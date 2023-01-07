@@ -1,16 +1,18 @@
+import style from "./userSuggestion.module.css";
+
 type UserSuggestionProps = {
     username: string;
     thumbnail: string;
 }
 
 const UserSuggestion = ({ username, thumbnail }: UserSuggestionProps) => {
-    return <div className="suggestion">
+    return <div className={style.suggestion}>
         <img src={thumbnail} />
-        <div className="user">
-            <div className="username">{username}</div>
-            <div className="followed-by">Followed by someone</div>
+        <div className={style.user}>
+            <div className={style.username}>{username}</div>
+            <div className={style.followedBy}>Followed by someone</div>
         </div>
-        <div className="follow-btn">follow</div>
+        <div className={style.followBtn}>follow</div>
     </div>
 }
 

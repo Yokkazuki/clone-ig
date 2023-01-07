@@ -1,3 +1,4 @@
+import style from "./storyThumbnail.module.css";
 
 type StoryThumbnailProps = {
     createdByThumbnail: string;
@@ -5,9 +6,9 @@ type StoryThumbnailProps = {
 }
 
 const StoryThumbnail = ({ createdByThumbnail, createdBy }: StoryThumbnailProps) => {
-    return <div className="story">
+    return <div className={style.story}>
         <img src={createdByThumbnail} />
-        <div className="username">{createdBy}</div>
+        <div>{createdBy}</div>
     </div>
 }
 

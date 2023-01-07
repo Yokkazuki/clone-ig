@@ -1,0 +1,17 @@
+.userField {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    margin-top: 85px;
+    gap: 15px;
+}
+
+@media (width<=1370px) {
+    .userField {
+        display: none;
+    }
+}
+
+.suggestions {
+    color: var(--ig-gray-3);
+}

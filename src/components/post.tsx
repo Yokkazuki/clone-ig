@@ -5,7 +5,7 @@ import ShareSvg from "../images/svgs/share";
 import ThreeDotSvg from "../images/svgs/threeDot";
 import { IComment } from "../store/posts";
 import PostImageField from "./postImageField";
-
+import style from "./post.module.css";
 type PostProps = {
     createdBy: string;
     createdByThumbnail: string;
@@ -18,30 +18,30 @@ type PostProps = {
 }
 
 const Post = ({ createdBy, createdByThumbnail, images, likeCount, comment, createdTimeBefore, discription, index }: PostProps) => {
-    return <div className="post">
-        <div className="post-header">
-            <div className="user">
+    return <div className={style.post}>
+        <div className={style.header}>
+            <div className={style.user}>
                 <img src={createdByThumbnail} />
-                <div className="username">{createdBy}</div>
+                <div className={style.username}>{createdBy}</div>
             </div>
             <ThreeDotSvg />
         </div>
         <PostImageField images={images} index={index} />
-        <div className="post-bottom">
-            <div className="post-action">
+        <div className={style.bottom}>
+            <div className={style.action}>
                 <HeartSvg />
                 <CommentSvg />
                 <ShareSvg />
                 <BookmarkSvg />
             </div>
-            <div className="likes">{likeCount} likes</div>
-            <div className="post-description">
-                <div className="username">{createdBy} </div> <div className="description-content">{discription}</div>
+            <div className={style.likes}>{likeCount} likes</div>
+            <div className={style.description}>
+                <div className={style.username}>{createdBy} </div> <div className={style.discriptionContent}>{discription}</div>
             </div>
-            <div className="post-comment">
-                <div className="view-all-comment-btn">View all {comment.length} comments</div>
+            <div className={style.comment}>
+                <div className={style.viewAllCommentBtn}>View all {comment.length} comments</div>
             </div>
-            <div className="post-time-before"> {createdTimeBefore} ago</div>
+            <div className={style.postTimeBefore}> {createdTimeBefore} ago</div>
         </div>
     </div>
 }
