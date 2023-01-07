@@ -13,7 +13,7 @@
 }
 
 .header::before {
-    --story-thumbnail: 44px;
+    --story-thumbnail: 36px;
     scale: 1.08;
     position: absolute;
     display: block;
@@ -31,7 +31,7 @@
 }
 
 .user img {
-    --user-thumbnail: 40px;
+    --user-thumbnail: 32px;
 
     height: var(--user-thumbnail);
     width: var(--user-thumbnail);
@@ -39,7 +39,6 @@
     object-fit: cover;
     border-radius: 45px;
     border: 2px solid white;
-    z-index: 2;
 }
 
 .user .username {

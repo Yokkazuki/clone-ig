@@ -41,9 +41,8 @@ const PostImageField = ({ images, index }: PostImageFieldProps) => {
 
             {images.length > 1 && <div className={style.dotGroup}>
                 {images.map((img, i) => {
-                    const isActive = (Math.abs(imageIndex) / imageWidth === i)
-                    // return <div className={`post-image-container-dot${isActive ? " active" : ""}`} key={containerId + "_ImageIndex_" + i} />
-                    return <div className={style.dot + isActive ? " " + style.active : ""} key={containerId + "_ImageIndex_" + i} />
+                    const isActive = (Math.abs(imageIndex) / imageWidth === i);
+                    return <div className={style.dot + (isActive ? " " + style.active : "")} key={containerId + "_ImageIndex_" + i} />
                 })}
             </div>}
         </div>

@@ -2,12 +2,13 @@
     width: 66px;
     display: grid;
     text-align: center;
-    gap: 10px;
+    gap: 5px;
     cursor: pointer;
+    font-size: 13px;
 }
 
 .story img {
-    --story-thumbnail: 62px;
+    --story-thumbnail: 53px;
 
     height: var(--story-thumbnail);
     width: var(--story-thumbnail);
@@ -18,7 +19,7 @@
 }
 
 .story::before {
-    --story-thumbnail: 66px;
+    --story-thumbnail: 57px;
 
     scale: 1.08;
     position: absolute;

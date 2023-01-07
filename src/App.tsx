@@ -12,12 +12,12 @@ function App() {
   
   return (
     <div className="app">
-      {isLogin && <Navbar userIcon={userInfo.icon} />}
       <div className="container">
         <Routes>
           <Route path="/clone-ig/" element={<Home isLogin={isLogin} />} />
         </Routes>
       </div>
+      {isLogin && <Navbar userIcon={userInfo.icon} />}
     </div>
   )
 }
