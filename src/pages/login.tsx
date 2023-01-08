@@ -13,7 +13,7 @@ import { storiesActions } from "../store/stories";
 const Login = () => {
 
     const [isError, setError] = useState(false);
-    const [userInput, setUserInput] = useState({ username: "", password: "" });
+    const [userInput, setUserInput] = useState({ username: "user", password: "user" });
     const isValidUserInput = (userInput.username.length > 0 && userInput.password.length > 0);
     const dispatch = useDispatch();
     const login = () => {

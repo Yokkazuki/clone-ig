@@ -5,5 +5,7 @@
 }
 
 .main {
-    width: 475px;
+    --main-width: 475px;
+    width: 100%;
+    max-width: var(--main-width);
 }
