@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  position: relative;
+  position: fixed;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container svg {
+  fill: white;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: calc(100% - 50px);
+  padding: 25px;
+}

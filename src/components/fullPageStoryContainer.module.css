@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.storyList {
+  display: flex;
+  gap: 55px;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* max-width: 1000px; */
+}
+
+.storyList::-webkit-scrollbar {
+    display: none;
+}
