@@ -20,6 +20,10 @@ const FullPageStoryContainer = () => {
     <div className={style.container}>
       <div className={style.storyList}>
         {stories?.map((userStories, i) => {
+          const containerWidth = 700
+          const defaultPostion = containerWidth * i;
+          const indexPostion = containerWidth * currentUserStoryIndex;
+          const position = defaultPostion - indexPostion;
           return (
             <FullPageStory
               key={"userStories_" + i}
@@ -27,6 +31,7 @@ const FullPageStoryContainer = () => {
               index={i}
               isSelected={i === currentUserStoryIndex}
               setCurrentUserStoryIndex={setCurrentUserStoryIndex}
+              positionX={position}
             />
           );
         })}

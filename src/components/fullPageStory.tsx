@@ -6,6 +6,7 @@ type FullPageStoryProps = {
   userStories: IStory;
   isSelected: boolean;
   index: number;
+  positionX: number;
   setCurrentUserStoryIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
@@ -13,6 +14,7 @@ const FullPageStory = ({
   userStories,
   isSelected,
   index,
+  positionX,
   setCurrentUserStoryIndex,
 }: FullPageStoryProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
@@ -33,10 +35,12 @@ const FullPageStory = ({
   };
 
   return (
-    <div className={style.container}>
-      {isSelected && (
-        <div className={style.arrowLeft} onClick={movePrevStory} />
-      )}
+    <div
+      className={
+        isSelected ? style.container + " " + style.active : style.container
+      }
+      style={{ transform: `translateX(${positionX}px)` }}
+    >
       <div
         className={isSelected ? style.card + " " + style.active : style.card}
         onClick={() => setCurrentUserStoryIndex(index)}
@@ -67,6 +71,9 @@ const FullPageStory = ({
         </div>
       </div>
 
+      {isSelected && (
+        <div className={style.arrowLeft} onClick={movePrevStory} />
+      )}
       {isSelected && (
         <div className={style.arrowRight} onClick={moveNextStory} />
       )}
