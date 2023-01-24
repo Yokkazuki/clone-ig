@@ -9,7 +9,7 @@ import Story from "./pages/story";
 
 function App() {
   const userInfo = useSelector<RootState>((state) => state.user) as IUserInfo;
-  const isLogin = !userInfo.isLogin;
+  const isLogin = userInfo.isLogin;
   const location = useLocation();
   console.log(location);
   return (
