@@ -92,10 +92,30 @@
 }
 
 .bar {
-  background-color: white;
+  background-color: rgb(160, 160, 160);
   width: 100%;
   border-radius: 19px;
   height: 4px;
+}
+
+.prevBar {
+  background-color: white;
+}
+
+.currentBar {
+  background: linear-gradient(to right, white 50%, rgb(160, 160, 160) 50%);
+  background-size: 200% 100%;
+  background-position: right;
+  animation: fillBar 5s forwards;
+}
+
+@keyframes fillBar {
+  0% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
 }
 
 .arrowLeft,
@@ -119,4 +139,30 @@
 .arrowRight {
   right: var(--arrow-position);
   background-position: -294px -273px;
+}
+
+.darkBlockTop,
+.darkBlockBottom {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  pointer-events: none;
+}
+
+.darkBlockTop {
+  top: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(38, 38, 38, 0.8) 0%,
+    rgba(38, 38, 38, 0) 100%
+  );
+}
+
+.darkBlockBottom {
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(38, 38, 38, 0.8) 0%,
+    rgba(38, 38, 38, 0) 100%
+  );
 }

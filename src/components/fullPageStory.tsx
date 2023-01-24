@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IStory } from "../store/stories";
 import style from "./fullPageStory.module.css";
 
@@ -7,6 +7,8 @@ type FullPageStoryProps = {
   isSelected: boolean;
   index: number;
   positionX: number;
+  currentUserStoryIndex: number;
+  maxStoryIndex: number;
   setCurrentUserStoryIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
@@ -15,10 +17,12 @@ const FullPageStory = ({
   isSelected,
   index,
   positionX,
+  currentUserStoryIndex,
+  maxStoryIndex,
   setCurrentUserStoryIndex,
 }: FullPageStoryProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-
+  const maxImageIndex = userStories.image.length - 1;
   const movePrevStory = () => {
     if (currentImageIndex !== 0) {
       setCurrentImageIndex((prev) => prev - 1);
@@ -27,12 +31,39 @@ const FullPageStory = ({
     }
   };
   const moveNextStory = () => {
-    if (currentImageIndex !== userStories.image.length - 1) {
+    debugger;
+    console.log(
+      "currentImageIndex: ",
+      currentImageIndex,
+      "maxImageIndex: ",
+      maxImageIndex
+    );
+    if (currentImageIndex !== maxImageIndex) {
+      console.log("in moveNextImage");
       setCurrentImageIndex((prev) => prev + 1);
     } else {
+      console.log("in moveNextStoryIndex");
       setCurrentUserStoryIndex((prev) => prev + 1);
     }
   };
+
+  useEffect(() => {
+    console.log(
+      "currentImageIndex: ",
+      currentImageIndex,
+      " index: ",
+      index,
+      " maxImageIndex: ",
+      maxImageIndex
+    );
+  }, [currentImageIndex, maxImageIndex]);
+
+  // useEffect(() => {
+  //   if (isSelected) {
+  //     let timer = setInterval(moveNextStory, 5000);
+  //     return () => clearInterval(timer);
+  //   }
+  // }, [isSelected]);
 
   return (
     <div
@@ -49,13 +80,25 @@ const FullPageStory = ({
           className={style.image}
           src={userStories.image[currentImageIndex]}
         />
+        {isSelected && (
+          <>
+            <div className={style.darkBlockTop} />
+            <div className={style.darkBlockBottom} />
+          </>
+        )}
         <div className={style.content}>
           {isSelected && (
             <div className={style.barGroup}>
               {userStories.image?.map((bar, i) => {
                 return (
                   <div
-                    className={style.bar}
+                    className={
+                      currentImageIndex === i
+                        ? style.bar + " " + style.currentBar
+                        : i < currentImageIndex
+                        ? style.bar + " " + style.prevBar
+                        : style.bar
+                    }
                     key={"user_" + userStories.createdBy + "bar_" + i}
                   />
                 );
@@ -72,10 +115,15 @@ const FullPageStory = ({
       </div>
 
       {isSelected && (
-        <div className={style.arrowLeft} onClick={movePrevStory} />
-      )}
-      {isSelected && (
-        <div className={style.arrowRight} onClick={moveNextStory} />
+        <>
+          {(currentUserStoryIndex !== 0 || currentImageIndex !== 0) && (
+            <div className={style.arrowLeft} onClick={movePrevStory} />
+          )}
+          {(currentUserStoryIndex !== maxStoryIndex ||
+            currentImageIndex !== maxImageIndex) && (
+            <div className={style.arrowRight} onClick={moveNextStory} />
+          )}
+        </>
       )}
     </div>
   );

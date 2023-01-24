@@ -15,6 +15,7 @@ const FullPageStoryContainer = () => {
   ) as Array<IStory>;
 
   const [currentUserStoryIndex, setCurrentUserStoryIndex] = useState<number>(0);
+  const maxStoryIndex = stories.length - 1;
 
   return (
     <div className={style.container}>
@@ -31,6 +32,8 @@ const FullPageStoryContainer = () => {
               index={i}
               isSelected={i === currentUserStoryIndex}
               setCurrentUserStoryIndex={setCurrentUserStoryIndex}
+              currentUserStoryIndex={currentUserStoryIndex}
+              maxStoryIndex={maxStoryIndex}
               positionX={position}
             />
           );
