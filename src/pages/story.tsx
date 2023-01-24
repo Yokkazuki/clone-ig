@@ -8,13 +8,13 @@ const Story = () => {
   const navigate = useNavigate();
   return (
     <div className={style.container}>
+      <FullPageStoryContainer />
       <div className={style.header}>
         <InstagramTextSvg />
         <div onClick={() => navigate("/clone-ig/")}>
           <CloseSvg />
         </div>
       </div>
-      <FullPageStoryContainer />
     </div>
   );
 };
