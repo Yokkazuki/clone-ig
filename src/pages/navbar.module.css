@@ -8,10 +8,8 @@
     justify-content: space-between;
     padding: var(--navbar-padding-top-bottom) 5px;
     position: fixed;
-    height: calc(100vh - var(--navbar-padding-top-bottom)*2);
     left: 0;
     border-right: 1px solid var(--ig-gray);
-    z-index: 1;
 }
 
 .logo {
@@ -69,7 +67,6 @@
     border-radius: 45px;
 }
 
-.topNavbar,
 .bottomNavbar {
     position: fixed;
     width: 100%;
@@ -78,19 +75,6 @@
     display: flex;
     align-items: center;
     pointer-events: visible;
-}
-
-.topNavbar {
-    height: 60px;
-    border-bottom: 1px solid var(--ig-gray);
-    justify-content: space-between;
-}
-
-.topNavbar>div:nth-child(2) {
-    display: flex;
-    width: 100%;
-    padding: 0 10px 0 50px;
-    align-items: center;
 }
 
 .bottomNavbar {
@@ -126,11 +110,9 @@
     .navbar {
         flex-direction: row;
         width: 100%;
-        height: 100%;
         bottom: 0;
         padding: 0;
         background-color: transparent;
-        pointer-events: none;
     }
 
     .logoText {
@@ -153,11 +135,4 @@
         display: flex;
     }
 
-    .small input {
-        width: 100%;
-        border-radius: 8px;
-        border: 0;
-        background-color: var(--ig-gray-4);
-        height: 80%;
-    }
 }

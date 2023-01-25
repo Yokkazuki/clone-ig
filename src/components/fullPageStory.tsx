@@ -31,7 +31,6 @@ const FullPageStory = ({
     }
   };
   const moveNextStory = () => {
-    debugger;
     console.log(
       "currentImageIndex: ",
       currentImageIndex,

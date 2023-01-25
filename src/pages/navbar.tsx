@@ -8,96 +8,96 @@ import MoreSvg from "../images/svgs/more";
 import NotificationsSvg from "../images/svgs/notifications";
 import ReelsSvg from "../images/svgs/reels";
 import SearchSvg from "../images/svgs/search";
-import navStyle from "./navbar.module.css";
+import style from "./navbar.module.css";
 
 type NavbarProps = {
     userIcon: string;
 }
 
 const Navbar = (props: NavbarProps) => {
-    return <div className={navStyle.navbar}>
-        <div className={navStyle.linkField + " " + navStyle.large}>
-            <a className={navStyle.logoField}>
-                <div className={navStyle.logoText} >
+    return <div className={style.navbar}>
+        <div className={style.linkField + " " + style.large}>
+            <a className={style.logoField}>
+                <div className={style.logoText} >
                     <InstagramTextSvg />
                 </div>
-                <div className={navStyle.logo}>
+                <div className={style.logo}>
                     <InstagramLogoSvg />
                 </div>
             </a>
-            <a className={navStyle.link}>
+            <a className={style.link}>
                 <HomeSvg />
                 <div>Home</div>
             </a>
-            <a className={navStyle.link} >
+            <a className={style.link} >
                 <SearchSvg />
                 <div>Search</div>
             </a>
-            <a className={navStyle.link}>
+            <a className={style.link}>
                 <ExploreSvg />
                 <div>Explore</div>
             </a>
-            <a className={navStyle.link}>
+            <a className={style.link}>
                 <ReelsSvg />
                 <div>Reels</div>
             </a>
-            <a className={navStyle.link}>
+            <a className={style.link}>
                 <MessagesSvg />
                 <div>Messages</div>
             </a>
-            <a className={navStyle.link}>
+            <a className={style.link}>
                 <NotificationsSvg />
                 <div>Notifications</div>
             </a>
-            <a className={navStyle.link}>
+            <a className={style.link}>
                 <CreateSvg />
                 <div>Create</div>
             </a>
-            <a className={navStyle.link}>
-                <img className={navStyle.thumbnail} src={props.userIcon} />
+            <a className={style.link}>
+                <img className={style.thumbnail} src={props.userIcon} />
                 <div>Profile</div>
             </a>
         </div>
-        <div className={navStyle.link + " " + navStyle.more}>
+        <div className={style.link + " " + style.more}>
             <MoreSvg />
             <div>More</div>
         </div>
 
-        <div className={navStyle.linkField + " " + navStyle.small}>
-            <div className={navStyle.topNavbar}>
-                <div className={navStyle.logoText}>
+        <div className={style.linkField + " " + style.small}>
+            {/* <div className={style.topNavbar}>
+                <div className={style.logoText}>
                     <InstagramTextSvg />
                 </div>
                 <div>
                     <input type="text" placeholder="Search" />
-                    <a className={navStyle.link}>
+                    <a className={style.link}>
                         <NotificationsSvg />
                     </a>
                 </div>
-            </div>
-            <div className={navStyle.bottomNavbar}>
-                <a className={navStyle.link}>
+            </div> */}
+            <div className={style.bottomNavbar}>
+                <a className={style.link}>
                     <HomeSvg />
                     <div>Home</div>
                 </a>
-                <a className={navStyle.link}>
+                <a className={style.link}>
                     <ExploreSvg />
                     <div>Explore</div>
                 </a>
-                <a className={navStyle.link}>
+                <a className={style.link}>
                     <ReelsSvg />
                     <div>Reels</div>
                 </a>
-                <a className={navStyle.link}>
+                <a className={style.link}>
                     <CreateSvg />
                     <div>Create</div>
                 </a>
-                <a className={navStyle.link}>
+                <a className={style.link}>
                     <MessagesSvg />
                     <div>Messages</div>
                 </a>
-                <a className={navStyle.link}>
-                    <img className={navStyle.thumbnail} src={props.userIcon} />
+                <a className={style.link}>
+                    <img className={style.thumbnail} src={props.userIcon} />
                     <div>Profile</div>
                 </a>
             </div>

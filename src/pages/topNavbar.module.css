@@ -1,0 +1,36 @@
+.topNavbar {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  pointer-events: visible;
+  height: 60px;
+  border-bottom: 1px solid var(--ig-gray);
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.topNavbar > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 80%;
+  justify-content: flex-end;
+}
+
+.topNavbar input {
+  width: 60%;
+  border-radius: 8px;
+  border: 0;
+  background-color: var(--ig-gray-4);
+  height: 80%;
+}
+
+.topNavbar svg {
+  scale: 1.1;
+}
+
+@media only screen and (min-width: 670px) {
+  .topNavbar {
+    display: none;
+  }
+}
