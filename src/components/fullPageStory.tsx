@@ -31,38 +31,45 @@ const FullPageStory = ({
     }
   };
   const moveNextStory = () => {
+    if (currentImageIndex !== maxImageIndex) {
+      setCurrentImageIndex((prev) => prev + 1);
+    } else {
+      setCurrentUserStoryIndex((prev) => prev + 1);
+    }
+  };
+
+  let timer: any;
+  let nextStoryTimer: any;
+
+  const updateImage = () => {
     console.log(
       "currentImageIndex: ",
       currentImageIndex,
       "maxImageIndex: ",
       maxImageIndex
     );
-    if (currentImageIndex !== maxImageIndex) {
-      console.log("in moveNextImage");
-      setCurrentImageIndex((prev) => prev + 1);
-    } else {
-      console.log("in moveNextStoryIndex");
-      setCurrentUserStoryIndex((prev) => prev + 1);
+    timer = setInterval(moveNextStory, 5000);
+
+    if (currentImageIndex === maxImageIndex) {
+      clearInterval(timer);
     }
   };
 
   useEffect(() => {
-    console.log(
-      "currentImageIndex: ",
-      currentImageIndex,
-      " index: ",
-      index,
-      " maxImageIndex: ",
-      maxImageIndex
-    );
-  }, [currentImageIndex, maxImageIndex]);
+    if (isSelected && currentImageIndex === maxImageIndex) {
+      nextStoryTimer = setTimeout(
+        () => setCurrentUserStoryIndex((prev) => prev + 1),
+        5000
+      );
+      return () => clearTimeout(nextStoryTimer);
+    }
+  }, [currentImageIndex]);
 
-  // useEffect(() => {
-  //   if (isSelected) {
-  //     let timer = setInterval(moveNextStory, 5000);
-  //     return () => clearInterval(timer);
-  //   }
-  // }, [isSelected]);
+  useEffect(() => {
+    if (isSelected) updateImage();
+
+    return () => clearInterval(timer);
+  }, [isSelected, currentImageIndex]);
 
   return (
     <div
