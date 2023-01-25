@@ -8,6 +8,12 @@
   transition: 0.5s;
 }
 
+@media only screen and (max-width: 670px) {
+  .container {
+    min-width: 300px;
+  }
+}
+
 .content {
   position: absolute;
   width: 100%;
