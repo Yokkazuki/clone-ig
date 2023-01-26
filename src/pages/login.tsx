@@ -23,7 +23,6 @@ const Login = () => {
             return setError(true);
         }
         dispatch(userActions.login());
-        dispatch(storiesActions.fetchStories());
     }
 
     return <div className={loginStyle.login}>
