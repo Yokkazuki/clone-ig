@@ -1,15 +1,11 @@
 import style from "./fullPageStoryContainer.module.css";
-import { IStory, storiesActions } from "../store/stories";
+import { IStory } from "../store/stories";
 import FullPageStory from "./fullPageStory";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 import { RootState } from "../store";
 
 const FullPageStoryContainer = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(storiesActions.fetchStories());
-  }, []);
   let stories = useSelector<RootState>(
     (state) => state.stories.stories
   ) as Array<IStory>;

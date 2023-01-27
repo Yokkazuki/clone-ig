@@ -10,7 +10,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 55px;
   position: relative;
   overflow-x: auto;
   overflow-y: hidden;

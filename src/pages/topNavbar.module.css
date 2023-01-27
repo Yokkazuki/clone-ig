@@ -7,6 +7,9 @@
   border-bottom: 1px solid var(--ig-gray);
   justify-content: space-between;
   padding: 0 15px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .topNavbar > div:nth-child(2) {

@@ -1,138 +1,139 @@
 .navbar {
-    --navbar-padding-top-bottom: 40px;
-    background-color: white;
-    width: 244px;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: var(--navbar-padding-top-bottom) 5px;
-    position: fixed;
-    left: 0;
-    border-right: 1px solid var(--ig-gray);
+  --navbar-padding-top-bottom: 40px;
+  background-color: white;
+  width: 244px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--navbar-padding-top-bottom) 5px;
+  position: fixed;
+  left: 0;
+  border-right: 1px solid var(--ig-gray);
+  height: calc(100% - var(--navbar-padding-top-bottom) * 2);
 }
 
 .logo {
-    display: none;
+  display: none;
 }
 
 .logo:hover svg {
-    scale: 1.2;
+  scale: 1.2;
 }
 
 .linkField {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0 15px;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 15px;
+  height: 100%;
 }
 
 .link {
-    display: flex;
-    gap: 20px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 1px 0;
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 1px 0;
 }
 
 .more {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 .link:hover {
-    background-color: var(--ig-gray-light);
+  background-color: var(--ig-gray-light);
 }
 
 .navbar svg {
-    scale: 1.1;
+  scale: 1.1;
 }
 
-.link:hover>svg {
-    scale: 1.2;
+.link:hover > svg {
+  scale: 1.2;
 }
 
 .logoField {
-    margin: 0 10px 20px;
-    cursor: pointer;
+  margin: 0 10px 20px;
+  cursor: pointer;
 }
 
 .thumbnail {
-    --thumbnail-radius: 25px;
-    width: var(--thumbnail-radius);
-    height: var(--thumbnail-radius);
-    object-fit: cover;
-    border-radius: 45px;
+  --thumbnail-radius: 25px;
+  width: var(--thumbnail-radius);
+  height: var(--thumbnail-radius);
+  object-fit: cover;
+  border-radius: 45px;
 }
 
 .bottomNavbar {
-    position: fixed;
-    width: 100%;
-    max-width: 100%;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    pointer-events: visible;
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  pointer-events: visible;
 }
 
 .bottomNavbar {
-    height: 50px;
-    border-top: 1px solid var(--ig-gray);
-    bottom: 0;
-    justify-content: space-evenly;
+  height: 50px;
+  border-top: 1px solid var(--ig-gray);
+  bottom: 0;
+  justify-content: space-evenly;
 }
 
 .small {
+  display: none;
+}
+
+@media only screen and (max-width: 1020px) {
+  .navbar {
+    width: 73px;
+  }
+
+  .logoText {
     display: none;
+  }
+
+  .logo {
+    display: block;
+  }
+
+  .link div {
+    display: none;
+  }
 }
 
-@media only screen and  (max-width:1020px) {
-    .navbar {
-        width: 73px;
-    }
+@media only screen and (max-width: 670px) {
+  .navbar {
+    flex-direction: row;
+    width: 100%;
+    bottom: 0;
+    padding: 0;
+    background-color: transparent;
+    height: 0;
+  }
 
-    .logoText {
-        display: none;
-    }
+  .logoText {
+    display: block;
+    padding: 0 20px;
+  }
 
-    .logo {
-        display: block;
-    }
+  .linkField {
+    padding: 0;
+    flex-direction: row;
+    display: flex;
+  }
 
-    .link div {
-        display: none;
-    }
-}
+  .large,
+  .more {
+    display: none;
+  }
 
-@media only screen and (max-width:670px) {
-    .navbar {
-        flex-direction: row;
-        width: 100%;
-        bottom: 0;
-        padding: 0;
-        background-color: transparent;
-    }
-
-    .logoText {
-        display: block;
-        padding: 0 20px;
-    }
-
-    .linkField {
-        padding: 0;
-        flex-direction: row;
-        display: flex;
-    }
-
-    .large,
-    .more {
-        display: none;
-    }
-
-    .small {
-        display: flex;
-    }
-
+  .small {
+    display: flex;
+  }
 }

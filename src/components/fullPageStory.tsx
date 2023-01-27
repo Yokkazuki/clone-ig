@@ -57,7 +57,6 @@ const FullPageStory = ({
 
   useEffect(() => {
     if (isSelected && currentImageIndex === maxImageIndex) {
-      console.log("in2");
       nextStoryTimer = setTimeout(
         () => setCurrentUserStoryIndex((prev) => prev + 1),
         5000
